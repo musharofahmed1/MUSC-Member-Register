@@ -2,12 +2,104 @@
 <html>
 <head>
 <title>Sports Club Member Register</title>
+<!--JS Link-->
+<script src="app.js" defer></script>
+<!--CSS Link-->
 <link rel="stylesheet" href="styles.css">
+<!--Tailwind Link-->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
+
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <!--Nav Bar From Tailwind-->
+    <nav class="bg-blue-600">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      
+      <h1 class="text-2xl font-bold text-white">MU Sports Club</h1>
+
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-bold">Home</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-bold">Event</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-bold">Gallery</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-bold">Shop</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-bold">Contact</a>
+        <a href="#" class="rounded-md bg-white px-3 py-2 text-md font-medium text-blue font-bold" aria-current="page">SignUp</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+    
+    <main>
+    <div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow rounded-lg">
+
+    <!-- Form -->
+    <h2 class="text-xl font-semibold mb-4 text-blue-900">Register New Member</h2>
+    <form id="memberForm" class="space-y-4">
+      <input type="text" id="name" placeholder="Full Name" class="w-full border p-2 rounded border-blue-900" required>
+      <input type="text" id="studentId" placeholder="Student ID (XXX-XXX-XXX)" class="w-full border p-2 rounded border-blue-900" maxlength="11" required>
+
+      <select id="dept" class="w-full border p-2 rounded" required>
+        <option value="">Select Department</option>
+        <option value="CSE">CSE</option>
+        <option value="EEE">EEE</option>
+        <option value="SWE">SWE</option>
+        <option value="LLB">LLB</option>
+        <option value="Business Adminstration">Business Adminstration</option>
+        <option value="Economics">Economics</option>
+        <option value="English">English</option>
+      </select>
+      <input type="text" id="batch" placeholder="Batch" class="w-full border p-2 rounded border-blue-900" required>
+      <input type="email" id="email" placeholder="Email" class="w-full border p-2 rounded border-blue-900" required>
+      <input type="tel" id="phone" placeholder="Phone" class="w-full border p-2 rounded border-blue-900" maxlength="11" required>
+
+      
+        <select id="bloodGroup" class="w-full border p-2 rounded" required>
+        <option value="">Select Blood Group</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        </select>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-6 00">Add Member</button>
+    </form>
+
+    <!-- Members Count -->
+    <h3 class="mt-8 text-lg font-bold">Total Members: <span id="totalMembers">0</span></h3>
+
+    <!-- Table -->
+    <div class="overflow-x-auto mt-4">
+      <table class="table-auto w-full border border-gray-300">
+        <thead>
+          <tr class="bg-blue-600 text-white">
+            <th class="p-2">Name</th>
+            <th class="p-2">ID</th>
+            <th class="p-2">Dept</th>
+            <th class="p-2">Batch</th>
+            <th class="p-2">Blood</th>
+          </tr>
+        </thead>
+        <tbody id="memberTableBody">
+          <!-- Dynamic Data Goes Here -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+    </main>
+
+    <footer>
+
+    </footer>
 
 </body>
 </html>
