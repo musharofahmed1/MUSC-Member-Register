@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="styles.css">
 <!--Tailwind Link-->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+<script src="app.js"></script>
 </head>
 
 <body>
 
   <!--Nav Bar From Tailwind-->
-    <nav class="bg-blue-600">
+  <header>
+     <nav class="bg-blue-600">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex h-16 items-center justify-between">
       
@@ -32,18 +33,29 @@
     </div>
   </div>
 </nav>
+  </header>
 
-    
-    <main>
-    <div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow rounded-lg">
+  <main>
+  <section class="max-w-2xl mx-auto mt-4 p-6 bg-gray-100 rounded-lg ">
 
-    <!-- Form -->
-    <h2 class="text-xl font-semibold mb-4 text-blue-900">Register New Member</h2>
-    <form id="memberForm" class="space-y-4">
-      <input type="text" id="name" placeholder="Full Name" class="w-full border p-2 rounded border-blue-900" required>
-      <input type="text" id="studentId" placeholder="Student ID (XXX-XXX-XXX)" class="w-full border p-2 rounded border-blue-900" maxlength="11" required>
+  <!-- Form -->
+  <h2 class="text-xl font-semibold mb-4 text-blue-900 text-center">Register New Member</h2>
+  <form id="memberForm" class="space-y-4 flex flex-col items-center">
+   
+     <label for="name" class="font-semibold text-blue-900 "> Your Name : 
+      <input type="text" id="name" placeholder="Full Name" class="min-w-100 border p-2 rounded border-blue-900" required>
+    </label>
+  
 
-      <select id="dept" class="w-full border p-2 rounded" required>
+  
+    <label for="ID" class="font-semibold text-blue-900"> Student ID : 
+       <input type="text" id="studentId" placeholder="ID(XXX-XXX-XXX)" class="min-w-100 p-2 border p-2 rounded border-blue-900" maxlength="11" required>
+    </label> 
+  
+
+  
+    <label  for="DEPT" class="font-semibold text-blue-900"> Department :
+    <select id="dept" class="min-w-98 border p-2 rounded" required>
         <option value="">Select Department</option>
         <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
@@ -53,32 +65,58 @@
         <option value="Economics">Economics</option>
         <option value="English">English</option>
       </select>
-      <input type="text" id="batch" placeholder="Batch" class="w-full border p-2 rounded border-blue-900" required>
-      <input type="email" id="email" placeholder="Email" class="w-full border p-2 rounded border-blue-900" required>
-      <input type="tel" id="phone" placeholder="Phone" class="w-full border p-2 rounded border-blue-900" maxlength="11" required>
 
+   </label>
+  
+
+  
+     <label for="Batch" class="font-semibold text-blue-900"> Batch :
+      <input type="text" id="batch" placeholder="Enter Your Batch" class="w-110 border p-2 rounded border-blue-900" required>
+    </label>
+  
+    
+  
+     <label for="email" class="font-semibold text-blue-900"> Email :
+       <input type="email" id="email" placeholder="Eenter Your Email " class="w-110 border p-2 rounded border-blue-900" required>
+    </label>
+  
+    
+  
+     <label for="telephone" class="font-semibold text-blue-900"> Phone :
+       <input type="tel" id="phone" placeholder="+8801X-XXXX-XXXX" class="w-110 border p-2 rounded border-blue-900" maxlength="11" required>
+    </label>
+  
+     
+  
+       <label for="bloodgroup" class="font-semibold text-blue-900"> Blood Group :
+       <select id="bloodGroup" class="min-w-99 border p-2 rounded" required>
+      <option value="">Select Blood Group</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      </select>
+    </label>
+  
       
-        <select id="bloodGroup" class="w-full border p-2 rounded" required>
-        <option value="">Select Blood Group</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-        <option value="A+">A+</option>
-        <option value="A-">A-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        </select>
-
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-6 00">Add Member</button>
+     
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-6 00 mt-4">Add Member</button>
     </form>
+    
 
     <!-- Members Count -->
-    <h3 class="mt-8 text-lg font-bold">Total Members: <span id="totalMembers">0</span></h3>
+    <h3 class="mt-8 text-lg font-bold text-center">Total Members: <span id="totalMembers">0</span></h3>
 
-    <!-- Table -->
+    </section>
+
+  <section class="max-w-4xl mx-auto">
+      <!-- Table -->
     <div class="overflow-x-auto mt-4">
-      <table class="table-auto w-full border border-gray-300">
+      <table id="memberTableBody" class="table-auto w-full border border-gray-300">
         <thead>
           <tr class="bg-blue-600 text-white">
             <th class="p-2">Name</th>
@@ -92,9 +130,8 @@
           <!-- Dynamic Data Goes Here -->
         </tbody>
       </table>
-    </div>
-
-  </div>
+    </div> 
+  </section>
     </main>
 
     <footer>
