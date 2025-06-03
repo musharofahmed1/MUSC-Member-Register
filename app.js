@@ -1,6 +1,3 @@
-// app.js
-
-// Wait for the DOM to load before running script
 document.addEventListener("DOMContentLoaded", () => {
   
   const form = document.getElementById("memberForm");
@@ -10,30 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
   let memberCount = 0;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();  // prevent page reload
+    e.preventDefault();  
 
-    // Get input values
     const name = document.getElementById("name").value.trim();
     const studentId = document.getElementById("studentId").value.trim();
     const dept = document.getElementById("dept").value;
     const batch = document.getElementById("batch").value.trim();
     const bloodGroup = document.getElementById("bloodGroup").value;
 
-    // Validate required fields (basic check)
+  
     if (!name || !studentId || !dept || !batch || !bloodGroup) {
-      alert("Please fill in all required fields.");
+      alert("Registered Successfully");   // Validate required fields 
       return;
     }
 
     // Create new table row
     const newRow = document.createElement("tr");
 
-    // Set alternating background for rows
+    
     if (memberCount % 2 === 0) {
-      newRow.classList.add("bg-gray-100");
+      newRow.classList.add("bg-gray-100"); // Set background for rows
     }
 
-    // Populate the row with member data
+    // inserting data into the row
     newRow.innerHTML = `
       <td class="border p-2">${name}</td>
       <td class="border p-2">${studentId}</td>
@@ -42,15 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
       <td class="border p-2">${bloodGroup}</td>
     `;
 
-    // Add the row to the table body
+    // Add the row to the table body using appendChild
     tableBody.appendChild(newRow);
 
     // Increase member count and update display
     memberCount++;
     totalMembers.textContent = memberCount;
 
-    // Reset form
-    form.reset();
+  
+    form.reset(); // Clear the form fields
   });
 
 });
